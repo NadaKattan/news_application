@@ -13,9 +13,10 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       title: 'task_manager',
       routes: {
-        HomeScreen.routeName: (_) => HomeScreen(),
+        HomeScreen.routeName: (_) => const HomeScreen(),
       },
       initialRoute: HomeScreen.routeName,
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.lightThemeData,
       // darkTheme: AppTheme.darkThemeData,
       themeMode: ThemeMode.light,
