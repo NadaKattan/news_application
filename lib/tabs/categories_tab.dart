@@ -6,8 +6,8 @@ import 'package:news_application/widgets/category_item.dart';
 class CategoriesTab extends StatelessWidget {
   CategoriesTab({required this.onCategorySelected, super.key});
   void Function(CategoryModel selectedCategory) onCategorySelected;
-  List<CategoryModel> categories=List.generate(6, (index){
-    return CategoryModel(id: "$index",imageName: "ball",name: "Sports");
+  List<CategoryModel> categories = List.generate(6, (index) {
+    return CategoryModel(id: "$index", imageName: "ball", name: "Sports");
   });
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,10 @@ class CategoriesTab extends StatelessWidget {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, crossAxisSpacing: 20, mainAxisSpacing: 20),
-              itemBuilder: (context, index) => InkWell(onTap:()=>onCategorySelected(categories[index]),child: CategoryItem(categoryModel: categories[index], index: index)),
+              itemBuilder: (context, index) => InkWell(
+                  onTap: () => onCategorySelected(categories[index]),
+                  child: CategoryItem(
+                      categoryModel: categories[index], index: index)),
               itemCount: 6,
             ),
           ),

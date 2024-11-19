@@ -3,8 +3,8 @@ import 'package:news_application/app_theme.dart';
 import 'package:news_application/constants.dart';
 
 class HomeDrawer extends StatelessWidget {
-   HomeDrawer({required this.onItemSelected, super.key});
-   void Function(DrawerTabs selectedDrawer) onItemSelected;
+  HomeDrawer({required this.onItemSelected, super.key});
+  void Function(DrawerTabs selectedDrawer) onItemSelected;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.sizeOf(context);
@@ -66,12 +66,10 @@ class HomeDrawer extends StatelessWidget {
                       ),
                       Text(
                         "Settings",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(
-                              color: AppTheme.black,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                  color: AppTheme.black,
+                                ),
                       ),
                     ],
                   ),

@@ -1,50 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/models/source_model.dart';
-import 'package:news_application/widgets/news_list.dart';
-import 'package:news_application/widgets/source_item.dart';
+import 'package:news_application/services/api_services.dart';
+import 'package:news_application/tabs/sources_tabs.dart';
+import 'package:news_application/widgets/error_indicator.dart';
+import 'package:news_application/widgets/loading_indicator.dart';
 
-class CategoryDetails extends StatefulWidget {
-  CategoryDetails({super.key});
-  List<SourceModel> sources = List.generate(
-      10, (index) => SourceModel(id: "$index", name: "Source $index"));
-  @override
-  State<CategoryDetails> createState() => _CategoryDetailsState();
-}
-
-class _CategoryDetailsState extends State<CategoryDetails> {
-  int selectedIndex = 0;
+class CategoryDetails extends StatelessWidget {
+  const CategoryDetails({required this.categoryId, super.key});
+  final String categoryId;
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const SizedBox(
-        height: 16,
-      ),
-      DefaultTabController(
-        length: widget.sources.length,
-        child: TabBar(
-          onTap: (index) {
-            selectedIndex = index;
-            setState(() {});
-          },
-          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          tabs: widget.sources.map(
-            (source) {
-              return SourceItem(
-                SourceName: source.name,
-                isSelected: selectedIndex == widget.sources.indexOf(source),
-              );
-            },
-          ).toList(),
-          dividerColor: Colors.transparent,
-          isScrollable: true,
-          tabAlignment: TabAlignment.start,
-          indicatorColor: Colors.transparent,
-        ),
-      ),
-      const SizedBox(
-        height: 16,
-      ),
-      const NewsList(),
-    ]);
+    return FutureBuilder(
+      future: ApiServices.getSources(categoryId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const LoadingIndicator();
+        } else if (snapshot.hasError || snapshot.data?.status != "ok") {
+          return const ErrorIndicator();
+        } else {
+          return SourcesTabs(
+            sources: snapshot.data?.sources ?? [],
+          );
+        }
+      },
+    );
   }
 }
