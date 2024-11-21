@@ -13,7 +13,7 @@ class AppTheme {
         headlineSmall:
             TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: white),
         titleLarge:
-            TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: white),
+            TextStyle(fontSize: 20, fontWeight: FontWeight.w400, color: white),
         labelMedium: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,

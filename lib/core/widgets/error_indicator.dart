@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ErrorIndicator extends StatelessWidget {
-  const ErrorIndicator({super.key});
-
+  ErrorIndicator({this.message,super.key});
+  String? message;
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Something went wrong")
+    return Center(
+      child: Text(message??"Something went wrong")
     );
   }
 }

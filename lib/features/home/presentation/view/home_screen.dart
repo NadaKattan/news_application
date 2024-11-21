@@ -20,23 +20,35 @@ class _HomeScreenState extends State<HomeScreen> {
   CategoryModel? category;
   List<CategoryModel> categories = [
     CategoryModel(
-        id: "sports", imageName: "assets/images/ball.png", name: "Sports"),
+        id: "sports",
+        imageName: "assets/images/ball.png",
+        name: "Sports",
+        color: AppTheme.red),
+    CategoryModel(
+        id: "health",
+        imageName: "assets/images/health.png",
+        name: "Health",
+        color: Color(0xffED1E79)),
+    CategoryModel(
+        id: "science",
+        imageName: "assets/images/science.png",
+        name: "Science",
+        color: Color(0xff4882CF)),
+    CategoryModel(
+        id: "entertainment",
+        imageName: "assets/images/entertainment.png",
+        name: "Entertainment",
+        color: Colors.amber),
+    CategoryModel(
+        id: "technology",
+        imageName: "assets/images/tech.png",
+        name: "Technology",
+        color: Color(0xffF2D352)),
     CategoryModel(
         id: "business",
         imageName: "assets/images/bussines.png",
-        name: "Business"),
-    CategoryModel(
-        id: "health", imageName: "assets/images/health.png", name: "Health"),
-    CategoryModel(
-        id: "technology",
-        imageName: "assets/images/Politics.png",
-        name: "Technology"),
-    CategoryModel(
-        id: "science", imageName: "assets/images/science.png", name: "Science"),
-    CategoryModel(
-        id: "entertainment",
-        imageName: "assets/images/environment.png",
-        name: "Entertainment"),
+        name: "Business",
+        color: Color(0xffCF7E48)),
   ];
   @override
   Widget build(BuildContext context) {

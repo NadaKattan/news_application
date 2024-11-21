@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/app_theme.dart';
 import 'package:news_application/features/category/data/models/category_model.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -9,17 +8,17 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: const EdgeInsets.all(20),
+      // padding: const EdgeInsets.all(0),
       decoration: BoxDecoration(
-        color: AppTheme.red,
+        color: categoryModel.color,
         borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(20),
-          topRight: const Radius.circular(20),
+          topLeft: const Radius.circular(10),
+          topRight: const Radius.circular(10),
           bottomLeft: index % 2 == 0
-              ? const Radius.circular(20)
+              ? const Radius.circular(10)
               : const Radius.circular(0),
           bottomRight: index % 2 != 0
-              ? const Radius.circular(20)
+              ? const Radius.circular(10)
               : const Radius.circular(0),
         ),
       ),

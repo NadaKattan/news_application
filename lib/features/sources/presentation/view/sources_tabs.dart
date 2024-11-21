@@ -24,6 +24,7 @@ class _SourcesTabsState extends State<SourcesTabs> {
         length: widget.sources.length,
         child: TabBar(
           onTap: (index) {
+            if (selectedIndex == index) return;
             selectedIndex = index;
             setState(() {});
           },
