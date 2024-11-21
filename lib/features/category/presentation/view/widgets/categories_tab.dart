@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
-import 'package:news_application/models/category_model.dart';
-import 'package:news_application/widgets/category_item.dart';
+import 'package:news_application/features/category/data/models/category_model.dart';
+import 'package:news_application/features/category/presentation/view/widgets/category_item.dart';
 
 class CategoriesTab extends StatelessWidget {
-  CategoriesTab({required this.onCategorySelected, super.key});
+  CategoriesTab({required this.categories, required this.onCategorySelected, super.key});
   void Function(CategoryModel selectedCategory) onCategorySelected;
-  List<CategoryModel> categories = List.generate(6, (index) {
-    return CategoryModel(id: "$index", imageName: "ball", name: "Sports");
-  });
+  // List<CategoryModel> categories = List.generate(6, (index) {
+  //   return CategoryModel(id: "$index", imageName: "ball", name: "Sports");
+  // });
+  List<CategoryModel> categories;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,7 +36,7 @@ class CategoriesTab extends StatelessWidget {
                   onTap: () => onCategorySelected(categories[index]),
                   child: CategoryItem(
                       categoryModel: categories[index], index: index)),
-              itemCount: 6,
+              itemCount: categories.length,
             ),
           ),
         ],

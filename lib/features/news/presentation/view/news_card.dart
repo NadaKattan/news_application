@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_application/models/news_response/article.dart';
+import 'package:news_application/features/news/data/models/article.dart';
+import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class NewsCard extends StatelessWidget {
@@ -8,8 +9,7 @@ class NewsCard extends StatelessWidget {
   // final String image;
   // final String? subTitle;
   final Article news;
-  const NewsCard(
-      this.news,{super.key});
+  const NewsCard(this.news, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +24,16 @@ class NewsCard extends StatelessWidget {
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         CachedNetworkImage(
-          imageUrl: news.urlToImage??"https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg",
-          imageBuilder: (context, imageProvider) => Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.red, BlendMode.colorBurn)),
-            ),
-          ),
-          placeholder: (context, url) => const CircularProgressIndicator(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          imageUrl: news.urlToImage ??
+              "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg",
+          placeholder: (context, url) => const LoadingIndicator(),
+          errorWidget: (context, url, error) =>
+              const Icon(Icons.image_not_supported_outlined),
+          width: double.infinity,
+          // fit: BoxFit.cover,
         ),
         Text(
-          news.title??"",
+          news.title ?? "",
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -51,5 +46,3 @@ class NewsCard extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
-import 'package:news_application/models/category_model.dart';
+import 'package:news_application/features/category/data/models/category_model.dart';
 
 class CategoryItem extends StatelessWidget {
   CategoryItem({required this.categoryModel, required this.index, super.key});
@@ -26,11 +26,11 @@ class CategoryItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/images/ball.png"),
+          Image.asset(categoryModel.imageName),
           Text(
-            "Sports",
+            categoryModel.name,
             style: Theme.of(context).textTheme.titleLarge,
-          )
+          ),
         ],
       ),
     );

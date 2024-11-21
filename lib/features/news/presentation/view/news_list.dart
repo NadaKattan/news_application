@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/services/api_services.dart';
-import 'package:news_application/widgets/error_indicator.dart';
-import 'package:news_application/widgets/loading_indicator.dart';
-import 'package:news_application/widgets/news_card.dart';
+import 'package:news_application/core/widgets/error_indicator.dart';
+import 'package:news_application/core/widgets/loading_indicator.dart';
+import 'package:news_application/features/news/presentation/view/news_card.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList(this.sourceId, {super.key});

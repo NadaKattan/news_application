@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
-import 'package:news_application/views/home_screen.dart';
+import 'package:news_application/features/home/presentation/view/home_screen.dart';
 
 void main() {
   runApp(const NewsApp());
@@ -11,7 +11,7 @@ class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'task_manager',
+      title: 'News App',
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
       },
