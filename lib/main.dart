@@ -15,7 +15,7 @@ class NewsApp extends StatelessWidget {
       title: 'News App',
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
-        NewsDetails.routeName: (_) => const NewsDetails(),
+        NewsDetails.routeName: (_) => NewsDetails(),
       },
       initialRoute: HomeScreen.routeName,
       debugShowCheckedModeBanner: false,

@@ -14,7 +14,7 @@ class NewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fifteenAgo = DateTime.now().subtract(const Duration(minutes: 15));
+    final publishedAgo = news.publishedAt;
     return Container(
       padding: const EdgeInsets.only(bottom: 10),
       margin: const EdgeInsets.only(bottom: 30),
@@ -25,14 +25,13 @@ class NewsCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pushNamed(NewsDetails.routeName);
+          Navigator.of(context).pushNamed(NewsDetails.routeName,arguments: news);
         },
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           if (news.urlToImage != null)
             CachedNetworkImage(
               imageUrl: news.urlToImage!,
-              // ??
-              //     "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg",
+              // ?? "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg",
               placeholder: (context, url) => const LoadingIndicator(),
               errorWidget: (context, url, error) =>
                   const Icon(Icons.image_not_supported_outlined),
@@ -46,10 +45,10 @@ class NewsCard extends StatelessWidget {
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Text(news.description ?? ""),
-          // if (publishedAgo != null)
+          if (publishedAgo != null)
             Align(
                 alignment: AlignmentDirectional.centerEnd,
-            child: Text(timeago.format(fifteenAgo))),
+                child: Text(timeago.format(publishedAgo))),
         ]),
       ),
     );
