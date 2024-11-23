@@ -12,13 +12,13 @@ class CategoryItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: categoryModel.color,
         borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(10),
-          topRight: const Radius.circular(10),
+          topLeft: const Radius.circular(20),
+          topRight: const Radius.circular(20),
           bottomLeft: index % 2 == 0
-              ? const Radius.circular(10)
+              ? const Radius.circular(20)
               : const Radius.circular(0),
           bottomRight: index % 2 != 0
-              ? const Radius.circular(10)
+              ? const Radius.circular(20)
               : const Radius.circular(0),
         ),
       ),

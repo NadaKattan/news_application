@@ -15,6 +15,12 @@ class NewsDetails extends StatelessWidget {
     args = ModalRoute.of(context)!.settings.arguments as Article;
     final publishedAgo = args.publishedAt;
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "News App",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        ),
         backgroundColor: Colors.white,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),

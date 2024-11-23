@@ -27,13 +27,13 @@ class CategoriesTab extends StatelessWidget {
                 ?.copyWith(color: AppTheme.grey, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
-            height: 8,
+            height: 20,
           ),
           Expanded(
             child: GridView.builder(
               padding: EdgeInsets.zero,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, crossAxisSpacing: 5, mainAxisSpacing: 5),
+                  crossAxisCount: 2, crossAxisSpacing: 15, mainAxisSpacing: 15),
               itemBuilder: (context, index) => InkWell(
                   onTap: () => onCategorySelected(categories[index]),
                   child: CategoryItem(
