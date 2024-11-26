@@ -1,18 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_application/core/widgets/loading_indicator.dart';
+import 'package:news_application/features/general/data/models/gen_article.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import '../../../../core/widgets/loading_indicator.dart';
-import '../../data/models/article.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NewsDetails extends StatelessWidget {
-  NewsDetails({super.key});
-  static const String routeName = "/article";
-  late Article args;
+class NewsGenDetails extends StatelessWidget {
+  NewsGenDetails({super.key});
+  static const String routeName = "/general-article";
+  late GenArticle args;
   late final Uri url;
   @override
   Widget build(BuildContext context) {
-    args = ModalRoute.of(context)!.settings.arguments as Article;
+    args = ModalRoute.of(context)!.settings.arguments as GenArticle;
     final publishedAgo = args.publishedAt;
     return Scaffold(
         appBar: AppBar(
@@ -23,7 +23,7 @@ class NewsDetails extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         body: Padding(
-          padding:const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -52,10 +52,10 @@ class NewsDetails extends StatelessWidget {
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              if (publishedAgo != null)
-                Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: Text(timeago.format(publishedAgo))),
+              // if (publishedAgo != null)
+              //   Align(
+              //       alignment: AlignmentDirectional.centerEnd,
+              //       child: Text(timeago.format(publishedAgo))),
               const SizedBox(
                 height: 10,
               ),

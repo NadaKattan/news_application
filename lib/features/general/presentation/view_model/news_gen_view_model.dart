@@ -1,16 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:news_application/features/news/data/data_sources/news_data_source.dart';
-import 'package:news_application/features/news/data/models/article.dart';
 
-class NewsViewModel with ChangeNotifier{
-  List<Article> news = [];
+
+import 'package:flutter/material.dart';
+import 'package:news_application/features/general/data/data_sources/news_gen_data_source.dart';
+import 'package:news_application/features/general/data/models/gen_article.dart';
+
+class NewsGenViewModel with ChangeNotifier{
+  List<GenArticle> news = [];
   String? errorMessage;
   bool isLoading = false;
 
-  Future<void> getNews(String sourceId) async {
+  Future<void> getGenNews(String searchWord) async {
     isLoading = true;
     notifyListeners();
-    final response = await NewsDataSource().getNews(sourceId);
+    final response = await NewsGenDataSource().getGenNews(searchWord);
     try {
       if (response.status == 'ok' && response.articles != null) {
         news = response.articles!;

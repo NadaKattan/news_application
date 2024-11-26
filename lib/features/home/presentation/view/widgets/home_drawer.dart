@@ -30,6 +30,30 @@ class HomeDrawer extends StatelessWidget {
             child: Column(
               children: [
                 InkWell(
+                  onTap: () => onItemSelected(DrawerTabs.generalTab),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.newspaper,
+                        size: 34,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "General News",
+                        style:
+                            Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                  color: AppTheme.black,
+                                ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                InkWell(
                   onTap: () => onItemSelected(DrawerTabs.categoriesTab),
                   child: Row(
                     children: [

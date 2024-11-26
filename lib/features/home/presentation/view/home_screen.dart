@@ -4,6 +4,9 @@ import 'package:news_application/constants.dart';
 import 'package:news_application/features/category/data/models/category_model.dart';
 import 'package:news_application/features/category/presentation/view/widgets/categories_tab.dart';
 import 'package:news_application/features/category/presentation/view/widgets/category_details.dart';
+import 'package:news_application/features/general/presentation/view/custom_search_delegate.dart';
+import 'package:news_application/features/general/presentation/view/general_tab.dart';
+import 'package:news_application/features/general/presentation/view/news_gen_list.dart';
 import 'package:news_application/features/settings/presentation/view/settings_tab.dart';
 import 'package:news_application/features/home/presentation/view/widgets/home_drawer.dart';
 
@@ -28,12 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
         id: "health",
         imageName: "assets/images/health.png",
         name: "Health",
-        color: Color(0xffED1E79)),
+        color: const Color(0xffED1E79)),
     CategoryModel(
         id: "science",
         imageName: "assets/images/science.png",
         name: "Science",
-        color: Color(0xff4882CF)),
+        color: const Color(0xff4882CF)),
     CategoryModel(
         id: "entertainment",
         imageName: "assets/images/entertainment.png",
@@ -43,13 +46,14 @@ class _HomeScreenState extends State<HomeScreen> {
         id: "technology",
         imageName: "assets/images/tech.png",
         name: "Technology",
-        color: Color(0xffF2D352)),
+        color: const Color(0xffF2D352)),
     CategoryModel(
         id: "business",
         imageName: "assets/images/bussines.png",
         name: "Business",
-        color: Color(0xffCF7E48)),
+        color: const Color(0xffCF7E48)),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,6 +70,23 @@ class _HomeScreenState extends State<HomeScreen> {
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
+        floatingActionButton: Builder(
+          builder: (context) => FloatingActionButton(
+            child: const Icon(Icons.search),
+            onPressed: () async {
+              await showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(categories
+                    .map(
+                      (e) => e.name,
+                    )
+                    .toList()),
+
+                // query: "hello",
+              );
+            },
+          ),
+        ),
         drawer: HomeDrawer(
           onItemSelected: changeTab,
         ),
@@ -79,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     categories: categories,
                     onCategorySelected: chooseCategory,
                   )
-                : const SettingsTab(),
+                : drawerTab == DrawerTabs.settingsTab
+                    ? const SettingsTab()
+                    : const NewsGenList("a"),
       ),
     );
   }

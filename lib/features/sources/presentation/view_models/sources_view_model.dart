@@ -7,7 +7,7 @@ class SourcesViewModel with ChangeNotifier {
   String? errorMessage;
   bool isLoading = false;
 
-  Future<void> getSources(String categoryId) async {
+  Future<void> getSources([String categoryId="general"]) async {
     isLoading = true;
     notifyListeners();
     final response = await SourcesDataSource().getSources(categoryId);

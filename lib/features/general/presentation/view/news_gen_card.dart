@@ -1,17 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_application/features/general/data/models/gen_article.dart';
-import 'package:news_application/features/news/data/models/article.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
-import 'package:news_application/features/news/presentation/view/news_details.dart';
+import 'package:news_application/features/general/presentation/view/news_gen_details.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-class NewsCard extends StatelessWidget {
+class NewsGenCard extends StatelessWidget {
   // final String title;
   // final String image;
   // final String? subTitle;
-  final Article news;
-  const NewsCard(this.news, {super.key});
+  final GenArticle news;
+  const NewsGenCard(this.news, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,8 @@ class NewsCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pushNamed(NewsDetails.routeName,arguments: news);
+          Navigator.of(context)
+              .pushNamed(NewsGenDetails.routeName, arguments: news);
         },
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           if (news.urlToImage != null)
@@ -46,10 +46,10 @@ class NewsCard extends StatelessWidget {
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Text(news.description ?? ""),
-          if (publishedAgo != null)
-            Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Text(timeago.format(publishedAgo))),
+          // if (publishedAgo != null)
+          //   Align(
+          //       alignment: AlignmentDirectional.centerEnd,
+          //       child: Text(timeago.format(publishedAgo))),
         ]),
       ),
     );

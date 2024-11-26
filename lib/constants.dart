@@ -1,1 +1,1 @@
-enum DrawerTabs { categoriesTab, settingsTab }
+enum DrawerTabs { categoriesTab, settingsTab, generalTab }

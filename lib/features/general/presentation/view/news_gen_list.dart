@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/features/news/presentation/view_models/news_view_model.dart';
 import 'package:news_application/core/widgets/error_indicator.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
-import 'package:news_application/features/news/presentation/view/news_card.dart';
+import 'package:news_application/features/general/presentation/view/news_gen_card.dart';
+import 'package:news_application/features/general/presentation/view_model/news_gen_view_model.dart';
 import 'package:provider/provider.dart';
 
-class NewsList extends StatefulWidget {
-  const NewsList(this.sourceId, {super.key});
-  final String sourceId;
+class NewsGenList extends StatefulWidget {
+  const NewsGenList(this.searchWord, {super.key});
+  final String searchWord;
 
   @override
-  State<NewsList> createState() => _NewsListState();
+  State<NewsGenList> createState() => _NewsListState();
 }
 
-class _NewsListState extends State<NewsList> {
-  final viewModel = NewsViewModel();
+class _NewsListState extends State<NewsGenList> {
+  final viewModel = NewsGenViewModel();
   @override
   void initState() {
     super.initState();
@@ -23,11 +23,11 @@ class _NewsListState extends State<NewsList> {
 
   @override
   Widget build(BuildContext context) {
-    viewModel.getNews(widget.sourceId);
+    viewModel.getGenNews(widget.searchWord);
     return Expanded(
       child: ChangeNotifierProvider(
         create: (_) => viewModel,
-        child: Consumer<NewsViewModel>(
+        child: Consumer<NewsGenViewModel>(
           builder: (context, value, child) {
             if (viewModel.isLoading) {
               return const LoadingIndicator();
@@ -37,7 +37,7 @@ class _NewsListState extends State<NewsList> {
               final newsList = viewModel.news;
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemBuilder: (_, index) => NewsCard(newsList[index]),
+                itemBuilder: (_, index) => NewsGenCard(newsList[index]),
                 itemCount: newsList.length,
               );
             }
