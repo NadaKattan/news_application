@@ -28,7 +28,10 @@ class CategoryItem extends StatelessWidget {
           Image.asset(categoryModel.imageName),
           Text(
             categoryModel.name,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: Colors.white),
           ),
         ],
       ),

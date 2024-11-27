@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_application/app_theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../../../../core/widgets/loading_indicator.dart';
 import '../../data/models/article.dart';
@@ -18,18 +19,26 @@ class NewsDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "News App",
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: AppTheme.white),
           ),
         ),
         backgroundColor: Colors.white,
-        body: Padding(
-          padding:const EdgeInsets.symmetric(horizontal: 20),
+        body: Container(
+          margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            // color: Colors.amber,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
               if (args.urlToImage != null)
                 CachedNetworkImage(
                   imageUrl: args.urlToImage!,

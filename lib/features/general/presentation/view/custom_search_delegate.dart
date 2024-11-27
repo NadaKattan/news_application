@@ -49,6 +49,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
     //     .toList();
     return SearchResult(
       query: query,
+      flag: false,
     );
     // ListView.builder(
     //   itemCount: searchResults.length,
