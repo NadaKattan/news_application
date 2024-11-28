@@ -10,7 +10,7 @@ class NewsDetails extends StatelessWidget {
   NewsDetails({super.key});
   static const String routeName = "/article";
   late Article args;
-  late final Uri url;
+  Uri? url;
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as Article;
@@ -78,8 +78,13 @@ class NewsDetails extends StatelessWidget {
                   child: InkWell(
                       onTap: () async {
                         url = Uri.parse(args.url ?? "");
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url, mode: LaunchMode.inAppWebView);
+                        if (await canLaunchUrl(url!)) {
+                          await launchUrl(url!, mode: LaunchMode.inAppWebView);
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('cannot launch $url'))
+                          );
                         }
                       },
                       child: Text(

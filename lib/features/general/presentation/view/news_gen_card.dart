@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:news_application/features/general/data/models/gen_article.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:news_application/features/general/presentation/view/news_gen_details.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class NewsGenCard extends StatelessWidget {
   // final String title;

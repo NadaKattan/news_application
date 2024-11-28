@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
-import 'package:news_application/features/category/presentation/view/widgets/category_details.dart';
-import 'package:news_application/features/general/presentation/view/news_gen_card.dart';
 import 'package:news_application/features/general/presentation/view/news_gen_list.dart';
 import 'package:news_application/features/general/presentation/view_model/news_gen_view_model.dart';
-import 'package:news_application/features/news/presentation/view/news_card.dart';
 
 class SearchResult extends StatelessWidget {
   static const String routeName = "/search";

@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:news_application/features/general/data/models/gen_article.dart';
-import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsGenDetails extends StatelessWidget {
   NewsGenDetails({super.key});
   static const String routeName = "/general-article";
   late GenArticle args;
-  late final Uri url;
+  Uri? url;
   @override
   Widget build(BuildContext context) {
     args = ModalRoute.of(context)!.settings.arguments as GenArticle;
@@ -78,8 +77,13 @@ class NewsGenDetails extends StatelessWidget {
                   child: InkWell(
                       onTap: () async {
                         url = Uri.parse(args.url ?? "");
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url, mode: LaunchMode.inAppWebView);
+                        if (await canLaunchUrl(url!)) {
+                          await launchUrl(url!, mode: LaunchMode.inAppWebView);
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('cannot launch $url'))
+                          );
                         }
                       },
                       child: Text(

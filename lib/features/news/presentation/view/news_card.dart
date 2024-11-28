@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_application/features/general/data/models/gen_article.dart';
 import 'package:news_application/features/news/data/models/article.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:news_application/features/news/presentation/view/news_details.dart';

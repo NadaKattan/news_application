@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/core/widgets/error_indicator.dart';
-import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:news_application/features/general/presentation/view/news_gen_card.dart';
 import 'package:news_application/features/general/presentation/view_model/news_gen_view_model.dart';
 import 'package:provider/provider.dart';

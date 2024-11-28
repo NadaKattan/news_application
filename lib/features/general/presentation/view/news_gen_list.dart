@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/core/widgets/error_indicator.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
-import 'package:news_application/features/general/presentation/view/news_gen_card.dart';
 import 'package:news_application/features/general/presentation/view/news_gen_list_content.dart';
 import 'package:news_application/features/general/presentation/view_model/news_gen_view_model.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +35,12 @@ class _NewsListState extends State<NewsGenList> {
               return ErrorIndicator();
             } else {
               final newsList = viewModel.news;
-              return NewsGenListContent(newsList);
+              return Column(
+                children: [
+                  const SizedBox(height: 20,),
+                  NewsGenListContent(newsList),
+                ],
+              );
             }
           },
         ),

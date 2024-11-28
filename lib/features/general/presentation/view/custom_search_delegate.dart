@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/app_theme.dart';
 import 'package:news_application/features/general/presentation/view/search_result.dart';
 
 class CustomSearchDelegate extends SearchDelegate<String> {
