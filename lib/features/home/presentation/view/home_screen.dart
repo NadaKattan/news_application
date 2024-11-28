@@ -8,6 +8,7 @@ import 'package:news_application/features/general/presentation/view/custom_searc
 import 'package:news_application/features/general/presentation/view/news_gen_list.dart';
 import 'package:news_application/features/settings/presentation/view/settings_tab.dart';
 import 'package:news_application/features/home/presentation/view/widgets/home_drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,40 +21,41 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   DrawerTabs drawerTab = DrawerTabs.categoriesTab;
   CategoryModel? category;
-  // List<CategoryModel> categories = [
-  //   CategoryModel(
-  //       id: "sports",
-  //       imageName: "assets/images/ball.png",
-  //       name: "Sports",
-  //       color: AppTheme.red),
-  //   CategoryModel(
-  //       id: "health",
-  //       imageName: "assets/images/health.png",
-  //       name: "Health",
-  //       color: const Color(0xffED1E79)),
-  //   CategoryModel(
-  //       id: "science",
-  //       imageName: "assets/images/science.png",
-  //       name: "Science",
-  //       color: const Color(0xff4882CF)),
-  //   CategoryModel(
-  //       id: "entertainment",
-  //       imageName: "assets/images/entertainment.png",
-  //       name: "Entertainment",
-  //       color: Colors.amber),
-  //   CategoryModel(
-  //       id: "technology",
-  //       imageName: "assets/images/tech.png",
-  //       name: "Technology",
-  //       color: const Color(0xffF2D352)),
-  //   CategoryModel(
-  //       id: "business",
-  //       imageName: "assets/images/bussines.png",
-  //       name: "Business",
-  //       color: const Color(0xffCF7E48)),
-  // ];
+  late List<CategoryModel> categories;
   @override
   Widget build(BuildContext context) {
+    categories = [
+      CategoryModel(
+          id: "sports",
+          imageName: "assets/images/ball.png",
+          name: AppLocalizations.of(context)!.sports,
+          color: AppTheme.red),
+      CategoryModel(
+          id: "health",
+          imageName: "assets/images/health.png",
+          name: AppLocalizations.of(context)!.health,
+          color: const Color(0xffED1E79)),
+      CategoryModel(
+          id: "science",
+          imageName: "assets/images/science.png",
+          name: AppLocalizations.of(context)!.science,
+          color: const Color(0xff4882CF)),
+      CategoryModel(
+          id: "entertainment",
+          imageName: "assets/images/entertainment.png",
+          name: AppLocalizations.of(context)!.entertainement,
+          color: Colors.amber),
+      CategoryModel(
+          id: "technology",
+          imageName: "assets/images/tech.png",
+          name: AppLocalizations.of(context)!.technology,
+          color: const Color(0xffF2D352)),
+      CategoryModel(
+          id: "business",
+          imageName: "assets/images/bussines.png",
+          name: AppLocalizations.of(context)!.business,
+          color: const Color(0xffCF7E48)),
+    ];
     return Container(
       decoration: const BoxDecoration(
         color: AppTheme.white,
@@ -86,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
           title: Text(
-            "News App",
+            AppLocalizations.of(context)!.title,
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
@@ -124,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onCategorySelected: chooseCategory,
                   )
                 : drawerTab == DrawerTabs.settingsTab
-                    ? const SettingsTab()
+                    ? SettingsTab()
                     : const NewsGenList("a"),
       ),
     );

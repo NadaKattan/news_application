@@ -4,6 +4,7 @@ import 'package:news_application/app_theme.dart';
 import 'package:news_application/core/widgets/loading_indicator.dart';
 import 'package:news_application/features/general/data/models/gen_article.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsGenDetails extends StatelessWidget {
   NewsGenDetails({super.key});
@@ -17,7 +18,7 @@ class NewsGenDetails extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "News App",
+            AppLocalizations.of(context)!.title,
             style: Theme.of(context)
                 .textTheme
                 .titleLarge

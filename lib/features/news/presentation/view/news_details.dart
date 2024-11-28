@@ -5,6 +5,8 @@ import 'package:timeago/timeago.dart' as timeago;
 import '../../../../core/widgets/loading_indicator.dart';
 import '../../data/models/article.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsDetails extends StatelessWidget {
   NewsDetails({super.key});
@@ -18,7 +20,7 @@ class NewsDetails extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "News App",
+            AppLocalizations.of(context)!.title,
             style: Theme.of(context)
                 .textTheme
                 .titleLarge

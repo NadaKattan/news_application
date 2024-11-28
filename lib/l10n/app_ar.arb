@@ -1,0 +1,14 @@
+{
+  "title": "الأخبار",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "categories": "الفئات",
+  "general": "جميع الأخبار",
+  "sports":"الرياضة",
+  "health":"الصحة",
+  "entertainement":"الترفيه",
+  "science":"العلوم",
+  "business":"التجارة",
+  "technology":"التكنولوجيا",
+  "pick": "اختار الفئة المهتم بالبحث عنها"
+}

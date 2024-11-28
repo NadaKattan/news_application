@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
 import 'package:news_application/features/general/presentation/view/news_gen_list.dart';
 import 'package:news_application/features/general/presentation/view_model/news_gen_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchResult extends StatelessWidget {
   static const String routeName = "/search";
@@ -20,7 +21,7 @@ class SearchResult extends StatelessWidget {
       appBar: flag
           ? AppBar(
               title: Text(
-                "News App",
+                AppLocalizations.of(context)!.title,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(color: AppTheme.white),
               ),
             )
