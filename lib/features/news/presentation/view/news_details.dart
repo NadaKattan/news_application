@@ -71,18 +71,21 @@ class NewsDetails extends StatelessWidget {
               Text(args.description ?? ""),
               Text(args.content ?? ""),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: InkWell(
                       onTap: () async {
                         url = Uri.parse(args.url ?? "");
-                        if (!await launchUrl(url)) {
-                          throw Exception('Could not launch $url');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.inAppWebView);
                         }
                       },
-                      child: const Text("View Full Article"))),
+                      child: Text(
+                        "View Full Article",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ))),
             ],
           ),
         ));

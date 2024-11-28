@@ -19,7 +19,10 @@ class NewsGenDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "News App",
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(color: AppTheme.white),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: AppTheme.white),
           ),
         ),
         backgroundColor: Colors.white,
@@ -75,11 +78,14 @@ class NewsGenDetails extends StatelessWidget {
                   child: InkWell(
                       onTap: () async {
                         url = Uri.parse(args.url ?? "");
-                        if (!await launchUrl(url)) {
-                          throw Exception('Could not launch $url');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url, mode: LaunchMode.inAppWebView);
                         }
                       },
-                      child: const Text("View Full Article"))),
+                      child: Text(
+                        "View Full Article",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ))),
             ],
           ),
         ));

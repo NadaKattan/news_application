@@ -19,7 +19,7 @@ class AppTheme {
         ),
         labelMedium: TextStyle(
           fontSize: 14,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w600,
           color: black,
         ),
         bodyMedium: TextStyle(
