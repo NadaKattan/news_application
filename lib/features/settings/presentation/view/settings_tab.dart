@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_application/app_theme.dart';
-import 'package:news_application/features/settings/data/settings_provider.dart';
+import 'package:news_application/features/settings/presentation/view_model/settings_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // class SettingsTab extends StatelessWidget {
@@ -17,6 +16,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // }
 
 class SettingsTab extends StatefulWidget {
+  const SettingsTab({super.key});
+
   @override
   State<SettingsTab> createState() => _SettingsTabState();
 }

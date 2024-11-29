@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_application/features/sources/data/data_sources/sources_data_source.dart';
+import 'package:news_application/core/service_locator.dart';
+import 'package:news_application/features/sources/data/repositories/sources_repository.dart';
 import '../../../sources/data/models/source.dart';
 
 class SourcesViewModel with ChangeNotifier {
@@ -7,16 +8,15 @@ class SourcesViewModel with ChangeNotifier {
   String? errorMessage;
   bool isLoading = false;
 
-  Future<void> getSources([String categoryId="general"]) async {
+  Future<void> getSources([String categoryId = "general"]) async {
     isLoading = true;
     notifyListeners();
-    final response = await SourcesDataSource().getSources(categoryId);
+    final repository = SourcesRepository(
+      dataSource: ServiceLocator.sourcesDataSource
+    );
+
     try {
-      if (response.status == 'ok' && response.sources != null) {
-        sources = response.sources!;
-      } else {
-        errorMessage = "Failed to get sources";
-      }
+      sources = await repository.getSources(categoryId);
     } catch (error) {
       errorMessage = error.toString();
     }

@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onCategorySelected: chooseCategory,
                   )
                 : drawerTab == DrawerTabs.settingsTab
-                    ? SettingsTab()
+                    ? const SettingsTab()
                     : const NewsGenList("a"),
       ),
     );
