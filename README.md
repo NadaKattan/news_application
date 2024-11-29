@@ -16,4 +16,5 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ## Demo
-[https://github.com/NadaKattan/flutter-tasks/issues/1#issue-2664400561](https://github.com/user-attachments/assets/f2630696-d32e-490c-a705-f8afd5a6c5dd)
+[https://github.com/NadaKattan/flutter-tasks/issues/1#issue-2664400561](
+https://github.com/user-attachments/assets/5ecec978-c689-4fcf-92ae-ec5e8eacd598)
