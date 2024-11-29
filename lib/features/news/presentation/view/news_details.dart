@@ -82,15 +82,13 @@ class NewsDetails extends StatelessWidget {
                         url = Uri.parse(args.url ?? "");
                         if (await canLaunchUrl(url!)) {
                           await launchUrl(url!, mode: LaunchMode.inAppWebView);
-                        }
-                        else{
+                        } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('cannot launch $url'))
-                          );
+                              SnackBar(content: Text('cannot launch $url')));
                         }
                       },
                       child: Text(
-                        "View Full Article",
+                        AppLocalizations.of(context)!.view,
                         style: Theme.of(context).textTheme.labelMedium,
                       ))),
             ],
